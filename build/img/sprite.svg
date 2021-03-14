@@ -51,6 +51,10 @@
 <circle cx="187" cy="636" r="5" fill="white"/>
 <circle cx="352" cy="635" r="5" fill="white"/>
 <circle cx="627" cy="159" r="5" fill="white"/>
+</symbol><symbol id="triangles-tablet-mobile" viewBox="0 0 559 873">
+<path d="M753.624 434.625L277.874 709.299L277.874 159.95L753.624 434.625Z" stroke="#EBEBEB"/>
+<circle cx="277.739" cy="159.198" r="5" transform="rotate(30 277.739 159.198)" fill="#F2F2F2"/>
+<circle cx="277.896" cy="708.926" r="5" transform="rotate(30 277.896 708.926)" fill="#F2F2F2"/>
 </symbol><symbol id="triangles" viewBox="0 0 1920 1347">
 <path d="M297.208 633.738L297.208 1183.09L-178.543 908.413L297.208 633.738Z" stroke="#EBEBEB"/>
 <circle cx="296.896" cy="1182.88" r="5" transform="rotate(-30 296.896 1182.88)" fill="#F2F2F2"/>
