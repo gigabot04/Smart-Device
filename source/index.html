@@ -42,7 +42,7 @@
       <div class="wrapper">
         <h1>Печатные платы</h1>
         <p>производство и монтаж, поставка комплектующих, блоков и модулей</p>
-        <a class="basic__btn-call" href="#">
+        <a class="basic__btn-call" href="#feedback">
           <span>Получить бесплатную консультацию</span>
           <span>Бесплатная консультация</span>
         </a>
@@ -95,8 +95,7 @@
         <div class="about__container">
           <h2>О компании</h2>
           <p>Мы поставляем электронные комплектующие, производим печатные платы и предоставляем мировые технологии с 1997 года. Выполняем срочные заказы и пилотные образцы до 10 дней.</p>
-          <p>Наши поставщики - мировые производители электронных компонентов: OSRAM, CREE, HOLGLITRONIC, REFOND. Печатные платы и комплектующие Service Devices применяются на предприятиях Российских Железных Дорог..</p>
-          <!-- (РЖД), РоссАвтоПрома (ВАЗ, АвтоГАЗ), МинАтома, СпецМедТехники. Среди наших клиентов крупнейшие Производители светотехники России. -->
+          <p>Наши поставщики - мировые производители электронных компонентов: OSRAM, CREE, HOLGLITRONIC, REFOND. Печатные платы и комплектующие Service Devices применяются на предприятиях Российских Железных Дорог (РЖД), РоссАвтоПрома (ВАЗ, АвтоГАЗ), МинАтома, СпецМедТехники. Среди наших клиентов крупнейшие Производители светотехники России.</p>
           <a class="about__btn" href="#">Подробнее</a>
         </div>
       </div>
@@ -130,6 +129,30 @@
             </picture>
           </a>
         </div>
+      </div>
+    </section>
+    <section class="feedback" id="feedback">
+      <div class="wrapper">
+        <picture>
+          <source srcset="img/airplane@1x.webp 1x, img/airplane@2x.webp 2x" type="image/webp">
+          <img src="img/airplane@1x.png" srcset="img/airplane@2x.png 2x" alt="Бумажный самолетик" width="511" height="288">
+        </picture>
+        <form action="#" class="feedback__form">
+          <h2>Остались вопросы? Задайте их нам!</h2>
+          <p>Мы проконсультируем Вас бесплатно</p>
+          <label for="name">
+            <span class="visually-hidden">Введите ваше имя</span>
+          </label>
+          <input type="text" id="name" placeholder="Имя">
+          <label for="tel">
+            <span class="visually-hidden">Введите ваш телефон</span>
+          </label>
+          <input type="text" id="tel" placeholder="Телефон">
+          <textarea placeholder="Ваш вопрос"></textarea>
+          <button type="submit">Задать вопрос</button>
+          <input class="visually-hidden" type="checkbox" name="doc" id="doc">
+          <label for="doc">Я согласен на обработку  персональных данных</label>
+        </form>
       </div>
     </section>
   </main>
