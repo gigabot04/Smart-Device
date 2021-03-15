@@ -36,6 +36,7 @@
 }
 
 .feedback__form {
+  position: relative;
   width: 570px;
   min-height: 461px;
   display: flex;
@@ -131,6 +132,12 @@
       background-color: transparent;
       border: 1px solid $white;
     }
+  }
+
+  & input[type="checkbox"] {
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 
   & input[type="checkbox"]:checked + label[for="doc"] {

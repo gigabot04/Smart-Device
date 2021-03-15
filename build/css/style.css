@@ -1426,6 +1426,7 @@ template {
       padding: 30px 0 104px; } }
 
 .feedback__form {
+  position: relative;
   width: 570px;
   min-height: 461px;
   display: -webkit-box;
@@ -1526,6 +1527,10 @@ template {
       height: 16px;
       background-color: transparent;
       border: 1px solid #ffffff; }
+  .feedback__form input[type="checkbox"] {
+    position: absolute;
+    bottom: 0;
+    right: 0; }
   .feedback__form input[type="checkbox"]:checked + label[for="doc"]::before {
     background-repeat: no-repeat;
     background-position: 50% 50%;
