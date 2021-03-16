@@ -24,6 +24,10 @@ body {
   font-family: "PTMono", "Arial", sans-serif;
 }
 
+.body--js {
+  overflow: hidden;
+}
+
 .wrapper {
   max-width: 1440px;
   margin: 0 auto;

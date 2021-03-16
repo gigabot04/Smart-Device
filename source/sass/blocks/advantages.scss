@@ -76,7 +76,8 @@
     color: $dull-gray;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $sky;
 
 

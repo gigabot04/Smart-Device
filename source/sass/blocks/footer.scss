@@ -188,6 +188,15 @@
     color: rgba($dark-blue, 0.5);
     white-space: nowrap;
 
+    &:hover,
+    &:focus {
+      color: rgba($dark-blue, 0.8);
+    }
+
+    &:active {
+      color: rgba($dark-blue, 0.3);
+    }
+
     @media (max-width: $tablet-width) {
       width: 100%;
     }
@@ -274,6 +283,15 @@
     line-height: 25px;
     color: rgba($dark-blue, 0.5);
     margin: 0;
+
+    &:hover,
+    &:focus {
+      color: rgba($dark-blue, 0.8);
+    }
+
+    &:active {
+      color: rgba($dark-blue, 0.3);
+    }
   }
 
   @media (max-width: $tablet-width) {

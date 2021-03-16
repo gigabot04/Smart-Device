@@ -169,6 +169,15 @@
   margin-top: 27px;
   margin-left: 107px;
 
+  &:hover,
+  &:focus {
+    background-color: rgba($sky, 0.7);
+  }
+
+  &:active {
+    background-color: rgba($sky, 0.3);
+  }
+
   & span {
     &:first-child {
       display: block;
@@ -212,6 +221,15 @@
   color: rgba($white, 0.5);
   writing-mode: vertical-lr;
   transform: rotate(180deg);
+
+  &:hover,
+  &:focus {
+    color: rgba($white, 1);
+  }
+
+  &:active {
+    color: rgba($white, 0.3);
+  }
 
   @media (max-width: $tablet-width) {
     display: none;

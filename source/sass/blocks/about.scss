@@ -109,9 +109,14 @@
   margin-top: 37px;
   display: block;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $sky;
     color: $white;
+  }
+
+  &:active {
+    opacity: 0.7;
   }
 
   @media (max-width: $tablet-width) {

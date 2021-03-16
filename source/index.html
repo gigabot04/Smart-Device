@@ -223,6 +223,29 @@
       </div>
     </div>
   </footer>
+  <div class="overlay"></div>
+  <div class="popup-call">
+    <form action="#" class="popup-call__form">
+      <h2>Закажите звонок</h2>
+      <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
+      <label for="popup-call__name">
+        <span class="visually-hidden">Введите ваше имя</span>
+      </label>
+      <input type="text" id="popup-call__name" placeholder="Имя">
+      <label for="popap__tel">
+        <span class="visually-hidden">Введите ваш телефон</span>
+      </label>
+      <input type="text" id="popap__tel" placeholder="Телефон">
+      <textarea placeholder="Ваш вопрос"></textarea>
+      <button type="submit">Отправить</button>
+      <input class="visually-hidden" type="checkbox" id="popup-call__doc">
+      <label for="popup-call__doc">Я согласен на обработку персональных данных</label>
+      <button class="popap-call__close" type="button">
+        <span class="visually-hidden">Закрыть окно</span>
+      </button>
+    </form>
+  </div>
+  <script src="js/popup.js"></script>
   <script src="js/footer.js"></script>
 </body>
 </html>
