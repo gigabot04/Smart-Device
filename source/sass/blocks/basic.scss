@@ -34,14 +34,6 @@
     }
   }
 
-  & .wrapper {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    z-index: 1;
-  }
-
   & h1 {
     font-family: "RobotoCondensed", "Arial", sans-serif;
     font-style: normal;
@@ -123,6 +115,15 @@
   @media (max-width: $mobile-width) {
     min-height: 577px;
   }
+}
+
+
+.basic__wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  z-index: 1;
 }
 
 .basic__img {

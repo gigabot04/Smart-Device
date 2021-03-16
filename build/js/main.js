@@ -1,10 +1,14 @@
 "use strict";
 
 {
-  const btn = document.querySelectorAll(`.footer__js`);
+  const btn = document.querySelectorAll(`.footer__item-btn`);
+  const list = document.querySelectorAll(`.footer__item`);
   for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener(`click`, () => {
-      btn[i].classList.toggle(`footer__item-active`);
+      for (let j = 0; j < list.length; j++) {
+        list[j].classList.remove(`footer__item--active`);
+      }
+      list[i].classList.add(`footer__item--active`);
     });
   }
 }
@@ -41,7 +45,25 @@
 
 "use strict";
 {
-  const form = document.querySelector(`.form--js`);
+  const anchors = document.querySelectorAll(`a[href*="#"]`);
+
+  for (let anchor of anchors) {
+    anchor.addEventListener(`click`, function (e) {
+      e.preventDefault();
+
+      const blockID = anchor.getAttribute(`href`).substr(1);
+
+      document.getElementById(blockID).scrollIntoView({
+        behavior: `smooth`,
+        block: `start`
+      });
+    });
+  }
+}
+
+"use strict";
+{
+  const form = document.querySelector(`.popup-call__form--js`);
   const inputName = document.querySelector(`.popup-call input#popup-call__name`);
   const inputTel = document.querySelector(`.popup-call input#popup-call__tel`);
   const inputText = document.querySelector(`.popup-call textarea`);
@@ -79,7 +101,7 @@
 {
   const popupCall = document.querySelector(`.popup-call`);
   const btnCall = document.querySelector(`.header__btn`);
-  const btnCloseCall = document.querySelector(`.popap-call__close`);
+  const btnCloseCall = document.querySelector(`.popup-call__close`);
   const overlayCall = document.querySelector(`.overlay`);
   const phoneInputCall = document.querySelector(`#popup-call__tel`);
   const body = document.querySelector(`body`);

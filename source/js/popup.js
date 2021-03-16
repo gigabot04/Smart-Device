@@ -2,7 +2,7 @@
 {
   const popupCall = document.querySelector(`.popup-call`);
   const btnCall = document.querySelector(`.header__btn`);
-  const btnCloseCall = document.querySelector(`.popap-call__close`);
+  const btnCloseCall = document.querySelector(`.popup-call__close`);
   const overlayCall = document.querySelector(`.overlay`);
   const phoneInputCall = document.querySelector(`#popup-call__tel`);
   const body = document.querySelector(`body`);

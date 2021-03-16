@@ -2,10 +2,6 @@
   padding-top: 46px;
   padding-bottom: 111px;
 
-  & .wrapper {
-    position: relative;
-  }
-
   @media (max-width: $tablet-width) {
     padding-top: 13px;
     padding-bottom: 84px;
@@ -15,6 +11,10 @@
     padding-top: 60px;
     padding-bottom: 65px;
   }
+}
+
+.about__wrapper {
+  position: relative;
 }
 
 .about__container {

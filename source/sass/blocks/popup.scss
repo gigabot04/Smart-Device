@@ -43,6 +43,7 @@
     min-height: 51px;
     background-color: rgba($white, 0.2);
     border: none;
+    color: $white;
     padding: 14px 24px;
     margin-bottom: 32px;
 
@@ -58,6 +59,7 @@
     padding: 14px 24px;
     resize: none;
     min-height: 103px;
+    color: $white;
     margin-bottom: 26px;
 
     &::placeholder {
@@ -122,7 +124,7 @@
   }
 }
 
-.popap-call__close {
+.popup-call__close {
   position: absolute;
   top: 0;
   right: 0;
@@ -159,20 +161,5 @@
   &:hover,
   &:focus {
     background-color: rgba($black, 0.1);
-  }
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba($black, 0.5);
-  height: 100vh;
-  display: none;
-  z-index: 1;
-
-  &--active {
-    display: block;
   }
 }

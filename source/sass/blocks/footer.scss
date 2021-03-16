@@ -1,16 +1,16 @@
 .footer {
   background-color: $light-white;
+}
 
-  & .wrapper {
-    padding: 65px 16px 65px 12px;
+.footer__wrapper {
+  padding: 65px 16px 65px 12px;
 
-    @media (max-width: $tablet-width) {
-      padding: 19px 23px 4px 25px;
-    }
+  @media (max-width: $tablet-width) {
+    padding: 19px 23px 4px 25px;
+  }
 
-    @media (max-width: $mobile-width) {
-      padding: 45px 7px 4px 7px;
-    }
+  @media (max-width: $mobile-width) {
+    padding: 45px 7px 4px 7px;
   }
 }
 
@@ -107,6 +107,7 @@
   @media (max-width: $mobile-width) {
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 50px;
   }
 }
 
@@ -126,7 +127,7 @@
     &::after {
       content: "";
       position: absolute;
-      top: -14px;
+      top: 0;
       left: 0;
       height: 1px;
       width: 100%;
@@ -145,7 +146,7 @@
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: $dark-blue;
-    margin-top: -37px;
+    margin-top: 0;
     margin-bottom: 25px;
 
     @media (max-width: $tablet-width) {
@@ -153,29 +154,9 @@
     }
 
     @media (max-width: $mobile-width) {
-      margin: 16px 0 25px 8px;
+      margin: 30px 0 25px 8px;
       position: relative;
       width: 98%;
-
-      &::after {
-        content: "";
-        width: 16px;
-        height: 1px;
-        background-color: $light-grey;
-        position: absolute;
-        top: 7px;
-        right: 11px;
-      }
-
-      &::before {
-        content: "";
-        width: 1px;
-        height: 16px;
-        background-color: $light-grey;
-        position: absolute;
-        top: 0;
-        right: 19px;
-      }
     }
   }
 
@@ -266,26 +247,6 @@
       margin: 31px 0 3px 8px;
       width: 98%;
       position: relative;
-
-      &::after {
-        content: "";
-        width: 16px;
-        height: 1px;
-        background-color: $light-grey;
-        position: absolute;
-        top: 7px;
-        right: 11px;
-      }
-
-      &::before {
-        content: "";
-        width: 1px;
-        height: 16px;
-        background-color: $light-grey;
-        position: absolute;
-        top: 0;
-        right: 19px;
-      }
     }
   }
 
@@ -341,6 +302,62 @@
   }
 }
 
+.footer__item {
+  position: relative;
+
+  & button {
+    width: 50px;
+    height: 72px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+
+    &::after {
+      content: "";
+      width: 16px;
+      height: 1px;
+      background-color: $light-grey;
+      position: absolute;
+      top: 51%;
+      right: 5%;
+      transform: translate(-50%, -50%);
+    }
+
+    &::before {
+      content: "";
+      width: 1px;
+      height: 16px;
+      background-color: $light-grey;
+      position: absolute;
+      top: 51%;
+      right: 35%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &--active {
+    & button {
+      &::before {
+        content: none;
+      }
+    }
+
+    @media (max-width: $mobile-width) {
+      & h2 {
+        &::before {
+          content: none;
+        }
+      }
+
+      & ul {
+        display: block;
+      }
+    }
+  }
+}
+
 .footer__rights {
   margin-top: 23px;
   display: flex;
@@ -363,7 +380,8 @@
     }
   }
 
-  & p {
+  & p,
+  & a {
     font-style: normal;
     font-weight: normal;
     font-size: 13px;
@@ -390,6 +408,7 @@
 
   & p {
     margin-right: 20px;
+    margin-top: 13px;
   }
 
   @media (max-width: $tablet-width) {
@@ -403,8 +422,19 @@
   justify-content: space-between;
   width: 59%;
 
-  & p {
+  & a {
     margin-left: 20px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+
+    &:hover,
+    &:focus {
+      color: rgba($dark-blue, 0.8);
+    }
+
+    &:active {
+      color: rgba($dark-blue, 0.3);
+    }
 
     @media (max-width: $tablet-width) {
       margin: 20px 2px;
@@ -421,28 +451,5 @@
 
   @media (max-width: $mobile-width) {
     justify-content: center;
-  }
-}
-
-.footer__js {
-  background-color: transparent;
-  border: none;
-  text-align: start;
-  padding: 0;
-  display: block;
-  cursor: pointer;
-}
-
-.footer__item-active {
-  @media (max-width: $mobile-width) {
-    & h2 {
-      &::before {
-        content: none;
-      }
-    }
-
-    & ul {
-      display: block;
-    }
   }
 }
