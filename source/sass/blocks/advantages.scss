@@ -38,7 +38,13 @@
 .advantages__items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: space-around;
+
+  @media (max-width: $tablet-width) {
+    max-width: 749px;
+  }
 }
 
 .advantages__item {
@@ -49,10 +55,6 @@
   padding: 40px 42px;
   margin-bottom: 30px;
   background-color: $white;
-
-  &:nth-child(2n + 1) {
-    margin-right: 30px;
-  }
 
   & svg {
     fill: $sky;

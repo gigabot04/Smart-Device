@@ -4,6 +4,7 @@
   const btnCall = document.querySelector(`.header__btn`);
   const btnCloseCall = document.querySelector(`.popap-call__close`);
   const overlayCall = document.querySelector(`.overlay`);
+  const phoneInputCall = document.querySelector(`#popup-call__tel`);
   const body = document.querySelector(`body`);
   const onPopupEscPress = (evt) => {
     if (evt.key === `Escape`) {
@@ -29,6 +30,30 @@
     document.removeEventListener(`keydown`, onPopupEscPress);
     overlayCall.removeEventListener(`click`, closePopup);
   };
+  const masks = (event) => {
+    if (!(event.key === `ArrowLeft` || event.key === `ArrowRight` || event.key === `Backspace` || event.key === `Tab`)) {
+      event.preventDefault();
+    }
+    const mask = `+7 (111) 111-11-11`;
 
+    if (/[0-9\+\ \-\(\)]/.test(event.key)) {
+      let currentString = phoneInputCall.value;
+      let currentLength = currentString.length;
+      if (/[0-9]/.test(event.key)) {
+        if (mask[currentLength] === `1`) {
+          phoneInputCall.value = currentString + event.key;
+        } else {
+          for (let i = currentLength; i < mask.length; i++) {
+            if (mask[i] === `1`) {
+              phoneInputCall.value = currentString + event.key;
+              break;
+            }
+            currentString += mask[i];
+          }
+        }
+      }
+    }
+  };
+  phoneInputCall.addEventListener(`keydown`, masks);
   btnCall.addEventListener(`click`, openPopup);
 }
