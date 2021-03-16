@@ -736,7 +736,7 @@ template {
       flex-wrap: wrap;
   width: 333px;
   -ms-flex-line-pack: start;
-      align-content: start; }
+      align-content: flex-start; }
   .footer__item3 h2 {
     font-family: "RobotoCondensed", "Arial", sans-serif;
     font-style: normal;

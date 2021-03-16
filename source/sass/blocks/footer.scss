@@ -229,7 +229,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 333px;
-  align-content: start;
+  align-content: flex-start;
 
   & h2 {
     font-family: "RobotoCondensed", "Arial", sans-serif;
