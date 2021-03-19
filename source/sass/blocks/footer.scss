@@ -4,6 +4,7 @@
 
 .footer__wrapper {
   padding: 65px 16px 0 12px;
+  max-width: 1631px;
 
   @media (max-width: $tablet-width) {
     padding: 19px 23px 4px 25px;
@@ -59,10 +60,10 @@
 
 .footer__items {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 
   @media (max-width: $tablet-width) {
+    flex-wrap: wrap;
     justify-content: space-around;
   }
 
@@ -115,19 +116,8 @@
     }
   }
 
-  & h2 {
-    margin: 0;
+  & button {
     width: max-content;
-    font-family: "RobotoCondensed", "Arial", sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 16px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: $dark-blue;
-    margin-top: 0;
-    margin-bottom: 25px;
 
     @media (max-width: $tablet-width) {
       margin-top: 0;
@@ -180,6 +170,7 @@
   @media (max-width: $mobile-width) {
     margin-left: 8px;
     margin-bottom: 22px;
+    margin-top: 8px;
     padding-right: 18px;
     position: relative;
     display: none;
@@ -211,25 +202,6 @@
   width: 333px;
   align-content: flex-start;
 
-  & h2 {
-    font-family: "RobotoCondensed", "Arial", sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 16px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: $dark-blue;
-    margin: 0;
-    margin-bottom: 25px;
-
-    @media (max-width: $mobile-width) {
-      margin: 31px 0 3px 8px;
-      width: 98%;
-      position: relative;
-    }
-  }
-
   & a {
     font-style: normal;
     font-weight: normal;
@@ -257,6 +229,12 @@
     position: relative;
     width: 100%;
 
+    & button {
+      margin: 31px 0 3px 8px;
+      width: 98%;
+      position: relative;
+    }
+
     &::after {
       content: "";
       position: absolute;
@@ -276,8 +254,9 @@
 
   @media (max-width: $mobile-width) {
     margin-left: 8px;
-    margin-top: 32px;
+    margin-top: 8px;
     padding-right: 18px;
+    margin-bottom: 20px;
     display: none;
   }
 }
@@ -286,19 +265,27 @@
   position: relative;
 
   & button {
-    display: none;
+    font-family: "RobotoCondensed", "Arial", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 25px;
+    font-size: 15px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: $dark-blue;
+    background-color: transparent;
+    border: none;
+    padding: 0;
   }
 
   @media (max-width: $mobile-width) {
     & button {
-      width: 50px;
-      height: 72px;
-      position: absolute;
-      top: 0;
-      right: 0;
-      background-color: transparent;
-      border: none;
-      display: block;
+      text-align: start;
+      min-height: 75px;
+      margin-bottom: -4px;
+      padding-left: 8px;
 
       &::after {
         content: "";
@@ -306,8 +293,8 @@
         height: 1px;
         background-color: $light-grey;
         position: absolute;
-        top: 51%;
-        right: 5%;
+        top: 52%;
+        right: -4px;
         transform: translate(-50%, -50%);
       }
 
@@ -317,8 +304,8 @@
         height: 16px;
         background-color: $light-grey;
         position: absolute;
-        top: 51%;
-        right: 35%;
+        top: 52%;
+        right: 11px;
         transform: translate(-50%, -50%);
       }
     }
@@ -346,6 +333,8 @@
 }
 
 .footer__rights {
+  margin: 0 auto;
+  max-width: 1413px;
   margin-top: 23px;
   display: flex;
   flex-wrap: wrap;
@@ -363,7 +352,7 @@
     background-color: rgba($dark-gray, 0.2);
 
     @media (max-width: $mobile-width) {
-      top: -9px;
+      top: -12px;
     }
   }
 
@@ -376,6 +365,7 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: rgba($dark-blue, 0.5);
+    white-space: nowrap;
   }
 
   @media (max-width: $tablet-width) {
@@ -383,13 +373,12 @@
   }
 
   @media (max-width: $mobile-width) {
-    margin-top: 35px;
+    margin-top: 18px;
   }
 }
 
 .footer__rights-container-1 {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   width: 33.7%;
 
@@ -405,7 +394,6 @@
 
 .footer__rights-container-2 {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   width: 59%;
 
@@ -433,6 +421,7 @@
   }
 
   @media (max-width: $tablet-width) {
+    flex-wrap: wrap;
     width: 100%;
   }
 

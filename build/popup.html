@@ -1,0 +1,35 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Производство и монтаж, поставка комплектующих, блоков и модулей">
+  <title>Smart Device</title>
+  <link rel="preload" href="fonts/PTMono-Regular.woff2" as="font">
+  <link rel="preload" href="fonts/Roboto-Medium.woff2" as="font">
+  <link rel="preload" href="fonts/RobotoCondensed-Bold.woff2" as="font">
+  <link rel="preload" href="fonts/RobotoCondensed-Regular.woff2" as="font">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+  <div class="popup-call" style="display: block;">
+    <form action="#" class="popup-call__form popup-call__form--js">
+      <h2>Закажите звонок</h2>
+      <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
+      <label for="popup-call__name">
+        <span class="visually-hidden">Введите ваше имя</span>
+      </label>
+      <input type="text" id="popup-call__name" name="name" placeholder="Имя" required="" pattern="[A-Za-zА-Яа-яЁё\s]+$">
+      <label for="popup-call__tel">
+        <span class="visually-hidden">Введите ваш телефон</span>
+      </label>
+      <input type="tel" id="popup-call__tel" name="phone" placeholder="Телефон" required="">
+      <textarea placeholder="Ваш вопрос" name="question" required=""></textarea>
+      <button type="submit">Отправить</button>
+      <input class="visually-hidden" name="consent" type="checkbox" id="popup-call__doc">
+      <label for="popup-call__doc">Я согласен на обработку персональных данных</label>
+      <button class="popup-call__close" type="button">
+        <span class="visually-hidden">Закрыть окно</span>
+      </button>
+    </form>
+  </div>
+</body>

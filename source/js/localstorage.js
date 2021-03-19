@@ -26,7 +26,6 @@
   }
   form.addEventListener(`submit`, (evt) => {
     if (isStorageSupport) {
-      evt.preventDefault();
       localStorage.setItem(`name`, inputName.value);
       localStorage.setItem(`tel`, inputTel.value);
       localStorage.setItem(`text`, inputText.value);

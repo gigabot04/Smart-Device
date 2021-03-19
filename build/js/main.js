@@ -3,6 +3,10 @@
 {
   const btn = document.querySelectorAll(`.footer__item-btn`);
   const list = document.querySelectorAll(`.footer__item`);
+  for (let j = 0; j < list.length; j++) {
+    list[j].classList.remove(`footer__item--active`);
+  }
+
   for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener(`click`, () => {
       for (let j = 0; j < list.length; j++) {
@@ -89,7 +93,6 @@
   }
   form.addEventListener(`submit`, (evt) => {
     if (isStorageSupport) {
-      evt.preventDefault();
       localStorage.setItem(`name`, inputName.value);
       localStorage.setItem(`tel`, inputTel.value);
       localStorage.setItem(`text`, inputText.value);
@@ -104,6 +107,7 @@
   const btnCloseCall = document.querySelector(`.popup-call__close`);
   const overlayCall = document.querySelector(`.overlay`);
   const phoneInputCall = document.querySelector(`#popup-call__tel`);
+  const nameInputCall = document.querySelector(`#popup-call__name`);
   const body = document.querySelector(`body`);
   const onPopupEscPress = (evt) => {
     if (evt.key === `Escape`) {
@@ -119,6 +123,7 @@
     btnCloseCall.addEventListener(`click`, closePopup);
     document.addEventListener(`keydown`, onPopupEscPress);
     overlayCall.addEventListener(`click`, closePopup);
+    nameInputCall.focus();
   };
   const closePopup = (evt) => {
     evt.preventDefault();

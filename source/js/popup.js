@@ -5,6 +5,7 @@
   const btnCloseCall = document.querySelector(`.popup-call__close`);
   const overlayCall = document.querySelector(`.overlay`);
   const phoneInputCall = document.querySelector(`#popup-call__tel`);
+  const nameInputCall = document.querySelector(`#popup-call__name`);
   const body = document.querySelector(`body`);
   const onPopupEscPress = (evt) => {
     if (evt.key === `Escape`) {
@@ -20,6 +21,7 @@
     btnCloseCall.addEventListener(`click`, closePopup);
     document.addEventListener(`keydown`, onPopupEscPress);
     overlayCall.addEventListener(`click`, closePopup);
+    nameInputCall.focus();
   };
   const closePopup = (evt) => {
     evt.preventDefault();

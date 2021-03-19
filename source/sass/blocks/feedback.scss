@@ -26,7 +26,7 @@
 
   &::after {
     content: "";
-    background-image: url("../../img/airplane@1x.png");
+    background-image: url("../img/airplane@1x.png");
     background-repeat: no-repeat;
     background-size: contain;
     display: block;
@@ -36,8 +36,8 @@
     top: 69px;
     left: 0;
 
-    @media (max-resolution: 2dppx) {
-      background-image: url("../../img/airplane@2x.png");
+    @media (min-resolution: 2dppx) {
+      background-image: url("../img/airplane@2x.png");
     }
   }
 
@@ -90,6 +90,7 @@
     height: 50px;
     border: none;
     color: $white;
+    border-radius: 0;
 
     &:hover,
     &:focus {
@@ -163,6 +164,7 @@
     color: rgba($white, 0.8);
     padding-left: 40px;
     padding-top: 8px;
+    cursor: pointer;
 
     &:hover,
     &:focus {
@@ -191,12 +193,24 @@
     right: 5px;
   }
 
+  & input[type="checkbox"]:focus + label[for="doc"] {
+    color: rgba($white, 1);
+  }
+
   & input[type="checkbox"]:checked + label[for="doc"] {
     &::before {
       background-repeat: no-repeat;
       background-position: 50% 50%;
       background-image: url("data:image/svg+xml,%3Csvg width='9' height='6' viewBox='0 0 9 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.5 2L3.5 5L8 0.5' stroke='white'/%3E%3C/svg%3E");
     }
+  }
+
+  & div {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
   }
 
   @media (max-width: $tablet-width) {
@@ -238,6 +252,10 @@
     width: 100%;
     padding: 0 15px;
     margin-left: 0;
+
+    & div {
+      flex-direction: column-reverse;
+    }
 
     & h2 {
       font-size: 28px;

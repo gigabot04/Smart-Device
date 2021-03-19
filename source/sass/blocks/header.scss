@@ -78,9 +78,11 @@
 .header__contacts {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 430px;
 
   & a {
+    margin-bottom: 10px;
     &:hover,
     &:focus {
       opacity: 0.7;
