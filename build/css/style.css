@@ -1512,6 +1512,7 @@ template {
     padding: 13px 16px;
     margin-top: 40px;
     color: #ffffff;
+    border-radius: 0;
     margin-bottom: 43px; }
     .feedback__form textarea:hover, .feedback__form textarea:focus {
       border: 1px solid rgba(255, 255, 255, 0.7);
