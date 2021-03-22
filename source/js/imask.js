@@ -1,6 +1,9 @@
 "use strict";
 {
   const phoneInput = document.querySelector(`#tel`);
+  const submitBtn = document.querySelector(`.feedback__form button`);
+  const labelCheckbox = document.querySelector(`.feedback__form-checkbox`);
+  const inputCheckbox = document.querySelector(`#doc`);
   const masks = (event) => {
     if (!(event.key === `ArrowLeft` || event.key === `ArrowRight` || event.key === `Backspace` || event.key === `Tab`)) {
       event.preventDefault();
@@ -25,5 +28,29 @@
       }
     }
   };
+
+  const validityTel = (evt) => {
+    if (phoneInput.value.length !== 18) {
+      evt.preventDefault();
+      phoneInput.setCustomValidity(`Номер должен содержать 11 цифр`);
+      phoneInput.reportValidity();
+    } else {
+      phoneInput.setCustomValidity(``);
+    }
+
+    submitBtn.addEventListener(`click`, checkbox);
+  };
+
+  const checkbox = (evt) => {
+    if (!inputCheckbox.checked) {
+      evt.preventDefault();
+      labelCheckbox.classList.add(`feedback__form-checkbox--error`);
+    } else {
+      labelCheckbox.classList.remove(`feedback__form-checkbox--error`);
+      submitBtn.removeEventListener(`click`, checkbox);
+    }
+  };
+  submitBtn.addEventListener(`click`, validityTel);
   phoneInput.addEventListener(`keydown`, masks);
+
 }

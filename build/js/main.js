@@ -20,6 +20,9 @@
 "use strict";
 {
   const phoneInput = document.querySelector(`#tel`);
+  const submitBtn = document.querySelector(`.feedback__form button`);
+  const labelCheckbox = document.querySelector(`.feedback__form-checkbox`);
+  const inputCheckbox = document.querySelector(`#doc`);
   const masks = (event) => {
     if (!(event.key === `ArrowLeft` || event.key === `ArrowRight` || event.key === `Backspace` || event.key === `Tab`)) {
       event.preventDefault();
@@ -44,7 +47,31 @@
       }
     }
   };
+
+  const validityTel = (evt) => {
+    if (phoneInput.value.length !== 18) {
+      evt.preventDefault();
+      phoneInput.setCustomValidity(`Номер должен содержать 11 цифр`);
+      phoneInput.reportValidity();
+    } else {
+      phoneInput.setCustomValidity(``);
+    }
+
+    submitBtn.addEventListener(`click`, checkbox);
+  };
+
+  const checkbox = (evt) => {
+    if (!inputCheckbox.checked) {
+      evt.preventDefault();
+      labelCheckbox.classList.add(`feedback__form-checkbox--error`);
+    } else {
+      labelCheckbox.classList.remove(`feedback__form-checkbox--error`);
+      submitBtn.removeEventListener(`click`, checkbox);
+    }
+  };
+  submitBtn.addEventListener(`click`, validityTel);
   phoneInput.addEventListener(`keydown`, masks);
+
 }
 
 "use strict";
@@ -103,11 +130,15 @@
 "use strict";
 {
   const popupCall = document.querySelector(`.popup-call`);
+  const submitBtn = document.querySelector(`.popup-call button[type="submit"]`);
   const btnCall = document.querySelector(`.header__btn`);
   const btnCloseCall = document.querySelector(`.popup-call__close`);
   const overlayCall = document.querySelector(`.overlay`);
   const phoneInputCall = document.querySelector(`#popup-call__tel`);
   const nameInputCall = document.querySelector(`#popup-call__name`);
+  const checkboxCall = document.querySelector(`#popup-call__doc`);
+  const checkboxLabel = document.querySelector(`.popup-cal__doc-label`);
+
   const body = document.querySelector(`body`);
   const onPopupEscPress = (evt) => {
     if (evt.key === `Escape`) {
@@ -123,6 +154,7 @@
     btnCloseCall.addEventListener(`click`, closePopup);
     document.addEventListener(`keydown`, onPopupEscPress);
     overlayCall.addEventListener(`click`, closePopup);
+    submitBtn.addEventListener(`click`, validityTelPopup);
     nameInputCall.focus();
   };
   const closePopup = (evt) => {
@@ -132,6 +164,7 @@
     overlayCall.classList.remove(`overlay--active`);
     btnCloseCall.removeEventListener(`click`, closePopup);
     document.removeEventListener(`keydown`, onPopupEscPress);
+    submitBtn.removeEventListener(`click`, validityTelPopup);
     overlayCall.removeEventListener(`click`, closePopup);
   };
   const masks = (event) => {
@@ -156,6 +189,28 @@
           }
         }
       }
+    }
+  };
+
+  const validityTelPopup = (evt) => {
+    if (phoneInputCall.value.length !== 18) {
+      evt.preventDefault();
+      phoneInputCall.setCustomValidity(`Номер должен содержать 11 цифр`);
+      phoneInputCall.reportValidity();
+    } else {
+      phoneInputCall.setCustomValidity(``);
+    }
+
+    submitBtn.addEventListener(`click`, checkbox);
+  };
+
+  const checkbox = (evt) => {
+    if (!checkboxCall.checked) {
+      evt.preventDefault();
+      checkboxLabel.classList.add(`popup-cal__doc-label--error`);
+    } else {
+      checkboxLabel.classList.remove(`popup-cal__doc-label--error`);
+      submitBtn.removeEventListener(`click`, checkbox);
     }
   };
   phoneInputCall.addEventListener(`keydown`, masks);

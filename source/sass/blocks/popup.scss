@@ -92,6 +92,11 @@
     }
   }
 
+  & input[type="checkbox"]:focus + label[for="popup-call__doc"] {
+    outline: 1px solid black;
+    color: rgba($white, 1);
+  }
+
   & label[for="popup-call__doc"] {
     position: relative;
     font-style: normal;
@@ -101,6 +106,7 @@
     color: rgba($white, 0.8);
     display: block;
     width: 100%;
+    padding: 2px;
     padding-left: 48px;
     cursor: pointer;
 
@@ -163,4 +169,8 @@
   &:focus {
     background-color: rgba($black, 0.1);
   }
+}
+
+.popup-cal__doc-label--error {
+  box-shadow: 0 0 3px red;
 }

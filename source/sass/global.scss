@@ -20,8 +20,13 @@ a {
   text-decoration: none;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: "PTMono", "Courier New", monospace;
+  height: 100%;
 }
 
 .body--js {

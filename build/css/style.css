@@ -46,8 +46,12 @@
 a {
   text-decoration: none; }
 
+html {
+  height: 100%; }
+
 body {
-  font-family: "PTMono", "Courier New", monospace; }
+  font-family: "PTMono", "Courier New", monospace;
+  height: 100%; }
 
 .body--js {
   overflow: hidden; }
@@ -1334,8 +1338,6 @@ template {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   max-width: 1200px;
   -ms-flex-pack: distribute;
       justify-content: space-around;
@@ -1343,6 +1345,8 @@ template {
   margin-top: 52px; }
   @media (max-width: 1023px) {
     .services__items {
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
       width: 100%; } }
   @media (max-width: 767px) {
     .services__items {
@@ -1350,7 +1354,7 @@ template {
 
 .services__item {
   overflow: hidden;
-  width: 370px;
+  width: 30.8%;
   min-height: 620px;
   position: relative;
   z-index: 1;
@@ -1428,28 +1432,12 @@ template {
           justify-content: flex-end;
   max-width: 1225px;
   padding: 0 28px; }
-  .feedback__wrapper::after {
-    content: "";
-    background-image: url("../img/airplane@1x.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: block;
-    width: 511px;
-    height: 288px;
-    position: absolute;
-    top: 69px;
-    left: 0; }
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
-      .feedback__wrapper::after {
-        background-image: url("../img/airplane@2x.png"); } }
   @media (max-width: 1023px) {
     .feedback__wrapper {
       -webkit-box-pack: center;
           -ms-flex-pack: center;
               justify-content: center;
-      padding: 0; }
-      .feedback__wrapper::after {
-        content: none; } }
+      padding: 0; } }
 
 .feedback__form {
   position: relative;
@@ -1466,6 +1454,23 @@ template {
       -ms-flex-pack: justify;
           justify-content: space-between;
   z-index: 1; }
+  .feedback__form::after {
+    content: "";
+    background-image: url("../img/airplane@1x.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    width: 511px;
+    height: 288px;
+    position: absolute;
+    top: 70px;
+    left: -624px; }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+      .feedback__form::after {
+        background-image: url("../img/airplane@2x.png"); } }
+    @media (max-width: 1023px) {
+      .feedback__form::after {
+        content: none; } }
   .feedback__form h2 {
     font-family: "RobotoCondensed", "Arial", sans-serif;
     font-style: normal;
@@ -1580,6 +1585,7 @@ template {
     bottom: 0;
     right: 5px; }
   .feedback__form input[type="checkbox"]:focus + label[for="doc"] {
+    outline: 1px solid black;
     color: white; }
   .feedback__form input[type="checkbox"]:checked + label[for="doc"]::before {
     background-repeat: no-repeat;
@@ -1656,6 +1662,10 @@ template {
         .feedback__form label[for="doc"]::before {
           left: 0;
           width: 17px; } }
+
+.feedback__form-checkbox--error {
+  -webkit-box-shadow: 0 0 3px red;
+          box-shadow: 0 0 3px red; }
 
 .popup-call {
   position: fixed;
@@ -1747,6 +1757,9 @@ template {
     .popup-call__form button[type="submit"]:hover, .popup-call__form button[type="submit"]:focus {
       background-color: #ffffff;
       color: #00b2ff; }
+  .popup-call__form input[type="checkbox"]:focus + label[for="popup-call__doc"] {
+    outline: 1px solid black;
+    color: white; }
   .popup-call__form label[for="popup-call__doc"] {
     position: relative;
     font-style: normal;
@@ -1756,6 +1769,7 @@ template {
     color: rgba(255, 255, 255, 0.8);
     display: block;
     width: 100%;
+    padding: 2px;
     padding-left: 48px;
     cursor: pointer; }
     .popup-call__form label[for="popup-call__doc"]::before {
@@ -1807,6 +1821,10 @@ template {
   .popup-call__close:hover, .popup-call__close:focus {
     background-color: rgba(0, 0, 0, 0.1); }
 
+.popup-cal__doc-label--error {
+  -webkit-box-shadow: 0 0 3px red;
+          box-shadow: 0 0 3px red; }
+
 .overlay {
   position: fixed;
   top: 0;
@@ -1818,3 +1836,25 @@ template {
   z-index: 1; }
   .overlay--active {
     display: block; }
+
+.body__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%; }
+  .body__container header {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto; }
+  .body__container main {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto; }
+  .body__container footer {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto; }
