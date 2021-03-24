@@ -1663,9 +1663,9 @@ template {
           left: 0;
           width: 17px; } }
 
-.feedback__form-checkbox--error {
-  -webkit-box-shadow: 0 0 3px red;
-          box-shadow: 0 0 3px red; }
+.feedback__form--error {
+  -webkit-box-shadow: 0 2px 0 red;
+          box-shadow: 0 2px 0 red; }
 
 .popup-call {
   position: fixed;

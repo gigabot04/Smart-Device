@@ -20,9 +20,10 @@
 "use strict";
 {
   const phoneInput = document.querySelector(`#tel`);
-  const submitBtn = document.querySelector(`.feedback__form button`);
+  const submitBtnFeedback = document.querySelector(`.feedback__form button`);
   const labelCheckbox = document.querySelector(`.feedback__form-checkbox`);
   const inputCheckbox = document.querySelector(`#doc`);
+  const inputName = document.querySelector(`#name`);
   const masks = (event) => {
     if (!(event.key === `ArrowLeft` || event.key === `ArrowRight` || event.key === `Backspace` || event.key === `Tab`)) {
       event.preventDefault();
@@ -48,30 +49,29 @@
     }
   };
 
-  const validityTel = (evt) => {
-    if (phoneInput.value.length !== 18) {
-      evt.preventDefault();
-      phoneInput.setCustomValidity(`Номер должен содержать 11 цифр`);
-      phoneInput.reportValidity();
-    } else {
-      phoneInput.setCustomValidity(``);
+  const validity = (evt) => {
+    if (!inputCheckbox.checked || phoneInput.value.length !== 18 || !inputName.value) {
+      if (!inputCheckbox.checked) {
+        evt.preventDefault();
+        labelCheckbox.classList.add(`feedback__form--error`);
+      } else {
+        labelCheckbox.classList.remove(`feedback__form--error`);
+      }
+      if (phoneInput.value.length !== 18) {
+        evt.preventDefault();
+        phoneInput.classList.add(`feedback__form--error`);
+      } else {
+        phoneInput.classList.remove(`feedback__form--error`);
+      }
+      if (!inputName.value) {
+        inputName.classList.add(`feedback__form--error`);
+      } else {
+        inputName.classList.remove(`feedback__form--error`);
+      }
     }
-
-    submitBtn.addEventListener(`click`, checkbox);
   };
-
-  const checkbox = (evt) => {
-    if (!inputCheckbox.checked) {
-      evt.preventDefault();
-      labelCheckbox.classList.add(`feedback__form-checkbox--error`);
-    } else {
-      labelCheckbox.classList.remove(`feedback__form-checkbox--error`);
-      submitBtn.removeEventListener(`click`, checkbox);
-    }
-  };
-  submitBtn.addEventListener(`click`, validityTel);
+  submitBtnFeedback.addEventListener(`click`, validity);
   phoneInput.addEventListener(`keydown`, masks);
-
 }
 
 "use strict";
@@ -118,7 +118,7 @@
   if (storageText) {
     inputText.value = storageText;
   }
-  form.addEventListener(`submit`, (evt) => {
+  form.addEventListener(`submit`, () => {
     if (isStorageSupport) {
       localStorage.setItem(`name`, inputName.value);
       localStorage.setItem(`tel`, inputTel.value);
@@ -193,24 +193,24 @@
   };
 
   const validityTelPopup = (evt) => {
-    if (phoneInputCall.value.length !== 18) {
-      evt.preventDefault();
-      phoneInputCall.setCustomValidity(`Номер должен содержать 11 цифр`);
-      phoneInputCall.reportValidity();
-    } else {
-      phoneInputCall.setCustomValidity(``);
-    }
-
-    submitBtn.addEventListener(`click`, checkbox);
-  };
-
-  const checkbox = (evt) => {
-    if (!checkboxCall.checked) {
-      evt.preventDefault();
-      checkboxLabel.classList.add(`popup-cal__doc-label--error`);
-    } else {
-      checkboxLabel.classList.remove(`popup-cal__doc-label--error`);
-      submitBtn.removeEventListener(`click`, checkbox);
+    if (!checkboxCall.checked || phoneInputCall.value.length !== 18 || !nameInputCall.value) {
+      if (!checkboxCall.checked) {
+        evt.preventDefault();
+        checkboxLabel.classList.add(`feedback__form--error`);
+      } else {
+        checkboxLabel.classList.remove(`feedback__form--error`);
+      }
+      if (phoneInputCall.value.length !== 18) {
+        evt.preventDefault();
+        phoneInputCall.classList.add(`feedback__form--error`);
+      } else {
+        phoneInputCall.classList.remove(`feedback__form--error`);
+      }
+      if (!nameInputCall.value) {
+        nameInputCall.classList.add(`feedback__form--error`);
+      } else {
+        nameInputCall.classList.remove(`feedback__form--error`);
+      }
     }
   };
   phoneInputCall.addEventListener(`keydown`, masks);

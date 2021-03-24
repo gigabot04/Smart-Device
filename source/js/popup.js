@@ -64,24 +64,24 @@
   };
 
   const validityTelPopup = (evt) => {
-    if (phoneInputCall.value.length !== 18) {
-      evt.preventDefault();
-      phoneInputCall.setCustomValidity(`Номер должен содержать 11 цифр`);
-      phoneInputCall.reportValidity();
-    } else {
-      phoneInputCall.setCustomValidity(``);
-    }
-
-    submitBtn.addEventListener(`click`, checkbox);
-  };
-
-  const checkbox = (evt) => {
-    if (!checkboxCall.checked) {
-      evt.preventDefault();
-      checkboxLabel.classList.add(`popup-cal__doc-label--error`);
-    } else {
-      checkboxLabel.classList.remove(`popup-cal__doc-label--error`);
-      submitBtn.removeEventListener(`click`, checkbox);
+    if (!checkboxCall.checked || phoneInputCall.value.length !== 18 || !nameInputCall.value) {
+      if (!checkboxCall.checked) {
+        evt.preventDefault();
+        checkboxLabel.classList.add(`popup-cal__doc--error`);
+      } else {
+        checkboxLabel.classList.remove(`popup-cal__doc--error`);
+      }
+      if (phoneInputCall.value.length !== 18) {
+        evt.preventDefault();
+        phoneInputCall.classList.add(`popup-cal__doc--error`);
+      } else {
+        phoneInputCall.classList.remove(`popup-cal__doc--error`);
+      }
+      if (!nameInputCall.value) {
+        nameInputCall.classList.add(`popup-cal__doc--error`);
+      } else {
+        nameInputCall.classList.remove(`popup-cal__doc--error`);
+      }
     }
   };
   phoneInputCall.addEventListener(`keydown`, masks);
