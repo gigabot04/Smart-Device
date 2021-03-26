@@ -20,6 +20,10 @@
 "use strict";
 {
   const phoneInput = document.querySelector(`#tel`);
+  const submitBtnFeedback = document.querySelector(`.feedback__form button`);
+  const labelCheckbox = document.querySelector(`.feedback__form-checkbox`);
+  const inputCheckbox = document.querySelector(`#doc`);
+  const inputName = document.querySelector(`#name`);
   const masks = (event) => {
     if (!(event.key === `ArrowLeft` || event.key === `ArrowRight` || event.key === `Backspace` || event.key === `Tab`)) {
       event.preventDefault();
@@ -44,6 +48,29 @@
       }
     }
   };
+
+  const validity = (evt) => {
+    if (!inputCheckbox.checked || phoneInput.value.length !== 18 || !inputName.value) {
+      if (!inputCheckbox.checked) {
+        evt.preventDefault();
+        labelCheckbox.classList.add(`feedback__form--error`);
+      } else {
+        labelCheckbox.classList.remove(`feedback__form--error`);
+      }
+      if (phoneInput.value.length !== 18) {
+        evt.preventDefault();
+        phoneInput.classList.add(`feedback__form--error`);
+      } else {
+        phoneInput.classList.remove(`feedback__form--error`);
+      }
+      if (!inputName.value) {
+        inputName.classList.add(`feedback__form--error`);
+      } else {
+        inputName.classList.remove(`feedback__form--error`);
+      }
+    }
+  };
+  submitBtnFeedback.addEventListener(`click`, validity);
   phoneInput.addEventListener(`keydown`, masks);
 }
 
@@ -91,7 +118,7 @@
   if (storageText) {
     inputText.value = storageText;
   }
-  form.addEventListener(`submit`, (evt) => {
+  form.addEventListener(`submit`, () => {
     if (isStorageSupport) {
       localStorage.setItem(`name`, inputName.value);
       localStorage.setItem(`tel`, inputTel.value);
@@ -103,11 +130,15 @@
 "use strict";
 {
   const popupCall = document.querySelector(`.popup-call`);
+  const submitBtn = document.querySelector(`.popup-call button[type="submit"]`);
   const btnCall = document.querySelector(`.header__btn`);
   const btnCloseCall = document.querySelector(`.popup-call__close`);
   const overlayCall = document.querySelector(`.overlay`);
   const phoneInputCall = document.querySelector(`#popup-call__tel`);
   const nameInputCall = document.querySelector(`#popup-call__name`);
+  const checkboxCall = document.querySelector(`#popup-call__doc`);
+  const checkboxLabel = document.querySelector(`.popup-cal__doc-label`);
+
   const body = document.querySelector(`body`);
   const onPopupEscPress = (evt) => {
     if (evt.key === `Escape`) {
@@ -123,6 +154,7 @@
     btnCloseCall.addEventListener(`click`, closePopup);
     document.addEventListener(`keydown`, onPopupEscPress);
     overlayCall.addEventListener(`click`, closePopup);
+    submitBtn.addEventListener(`click`, validityTelPopup);
     nameInputCall.focus();
   };
   const closePopup = (evt) => {
@@ -132,6 +164,7 @@
     overlayCall.classList.remove(`overlay--active`);
     btnCloseCall.removeEventListener(`click`, closePopup);
     document.removeEventListener(`keydown`, onPopupEscPress);
+    submitBtn.removeEventListener(`click`, validityTelPopup);
     overlayCall.removeEventListener(`click`, closePopup);
   };
   const masks = (event) => {
@@ -155,6 +188,28 @@
             currentString += mask[i];
           }
         }
+      }
+    }
+  };
+
+  const validityTelPopup = (evt) => {
+    if (!checkboxCall.checked || phoneInputCall.value.length !== 18 || !nameInputCall.value) {
+      if (!checkboxCall.checked) {
+        evt.preventDefault();
+        checkboxLabel.classList.add(`popup-cal__doc--error`);
+      } else {
+        checkboxLabel.classList.remove(`popup-cal__doc--error`);
+      }
+      if (phoneInputCall.value.length !== 18) {
+        evt.preventDefault();
+        phoneInputCall.classList.add(`popup-cal__doc--error`);
+      } else {
+        phoneInputCall.classList.remove(`popup-cal__doc--error`);
+      }
+      if (!nameInputCall.value) {
+        nameInputCall.classList.add(`popup-cal__doc--error`);
+      } else {
+        nameInputCall.classList.remove(`popup-cal__doc--error`);
       }
     }
   };
